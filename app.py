@@ -50,23 +50,22 @@ class PongGame(Widget):
         # went of to a side to score point?
         if self.ball.x < self.x:
             self.player2.score += 1
-            self.serve_ball(vel=(4, 0))
+            self.serve_ball(vel=(4, 2))
         if self.ball.x > self.width:
             self.player1.score += 1
-            self.serve_ball(vel=(-4, 0))
+            self.serve_ball(vel=(-4, 5))
 
     def on_touch_move(self, touch):
         if touch.x < self.width / 3:
             self.player1.center_y = touch.y
-        if touch.x > self.width - self.width / 3:
-            self.player2.center_y = touch.y
-
+        
 
 class PongApp(App):
     def build(self):
+        self.load_kv("pong.kv")
         game = PongGame()
         game.serve_ball()
-        Clock.schedule_interval(game.update, 1.0 / 50.0)
+        Clock.schedule_interval(game.update, -2.0 / 50.0)
         return game
 
 
