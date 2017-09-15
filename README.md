@@ -1,2 +1,2 @@
 # first-app
-it is basically ponggame
+it is modified ponggame
